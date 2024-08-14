@@ -1,3 +1,33 @@
+Metadata-Version: 2.1
+Name: openrlhf
+Version: 0.2.8
+Summary: A Ray-based High-performance RLHF framework.
+Classifier: Programming Language :: Python :: 3
+Classifier: Environment :: GPU :: NVIDIA CUDA
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: System :: Distributed Computing
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bitsandbytes
+Requires-Dist: datasets
+Requires-Dist: deepspeed==0.13.5
+Requires-Dist: einops
+Requires-Dist: isort
+Requires-Dist: jsonlines
+Requires-Dist: loralib
+Requires-Dist: optimum
+Requires-Dist: packaging
+Requires-Dist: peft
+Requires-Dist: ray[default]==2.12.0
+Requires-Dist: torch
+Requires-Dist: torchmetrics
+Requires-Dist: tqdm
+Requires-Dist: transformers==4.41.0
+Requires-Dist: transformers_stream_generator
+Requires-Dist: wandb
+Requires-Dist: wheel
+
 <div align="center">
     <img alt="OpenRLHF logo" src="./docs/logo.png" style="height: 160px;" />
 </div>
@@ -287,4 +317,3 @@ Our project would also like to thank [ColossalChat](https://github.com/hpcaitech
 ______________________________________________________________________
 
 *OpenRLHF © 2024 OpenLLMAI. All Rights Reserved.*
-# OpenRLHF_Tool

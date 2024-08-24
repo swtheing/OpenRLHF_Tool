@@ -174,13 +174,21 @@ class PPOTrainer(ABC):
                 disable=not self.strategy.is_rank_0(),
             )
             for rand_prompts in self.prompts_dataloader:
+                if all(s == rand_prompts[0] for s in rand_prompts):
+                    print("sw_all_equal")
+                else:
+                    print("sw_not_all_equal")
+                    
                 experience = self.experience_maker.make_experience(rand_prompts, mode="train", **self.generate_kwargs)
                 # print prompt/answer in each update step
                 if global_step % update_timesteps == 0:
                     output = self.tokenizer.batch_decode(experience.sequences, skip_special_tokens=True)
                     self.strategy.print(output[0])
                 self.replay_buffer.append(experience)
-                
+                #dic = {}
+                #for item in self.replay_buffer.items:
+                #     dic[str(item.prompts)] = 1
+                #print("sw_len: " + str(len(dic)))
                 if global_step % update_timesteps == 0:
                     torch.cuda.empty_cache()
                     self.replay_buffer.normalize("advantages", self.strategy)
@@ -199,7 +207,7 @@ class PPOTrainer(ABC):
         dataloader = DataLoader(
             self.replay_buffer,
             batch_size=self.replay_buffer.sample_batch_size,
-            shuffle=True,
+            shuffle=False,
             drop_last=True,
             pin_memory=self.dataloader_pin_memory,
             collate_fn=self.replay_buffer.collate_fn,

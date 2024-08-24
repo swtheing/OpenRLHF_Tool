@@ -152,7 +152,6 @@ class DeepspeedStrategy(ABC):
                 rank=dist.get_rank(),
                 shuffle=shuffle,
                 seed=self.seed,
-                #drop_last=drop_last,
             ) 
         else:
             sampler = DistributedSampler(

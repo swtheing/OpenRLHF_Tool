@@ -24,6 +24,7 @@ class Experience:
     Left padding for sequences is applied.
 
     Shapes of each tensor:
+    prompts: (B, S)
     sequences: (B, S)
     action_log_probs: (B, A)
     values: (B, A)
@@ -35,6 +36,7 @@ class Experience:
     "A" is the number of actions.
     """
 
+    prompts: torch.Tensor
     sequences: torch.Tensor
     action_log_probs: torch.Tensor
     values: torch.Tensor
@@ -46,6 +48,7 @@ class Experience:
 
     @torch.no_grad()
     def to_device(self, device: torch.device) -> None:
+        self.prompts = self.prompts.to(device)
         self.sequences = self.sequences.to(device)
         self.action_log_probs = self.action_log_probs.to(device)
         self.values = self.values.to(device)
@@ -57,6 +60,7 @@ class Experience:
             self.action_mask = self.action_mask.to(device)
 
     def pin_memory(self):
+        self.prompts = self.prompts.pin_memory()
         self.sequences = self.sequences.pin_memory()
         self.action_log_probs = self.action_log_probs.pin_memory()
         self.values = self.values.pin_memory()
@@ -117,6 +121,7 @@ class NaiveExperienceMaker(ABC):
 
         # generate seq
         inputs = self.tokenize_fn(prompts, self.prompt_max_len, device="cuda")
+        prompts = inputs["input_ids"]
         sequences, attention_mask, action_mask = self.actor.generate(**inputs, **generate_kwargs)
         #print(inputs)
         #token_ids_cpu = inputs["input_ids"].cpu().tolist()
@@ -166,6 +171,7 @@ class NaiveExperienceMaker(ABC):
         self.critic.train()
 
         return Experience(
+            prompts,
             sequences,
             action_log_probs,
             value,

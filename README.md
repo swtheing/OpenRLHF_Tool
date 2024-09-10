@@ -47,15 +47,15 @@ deepspeed --module openrlhf.cli.train_ppo \
 |-----------------------------|-------------------------------------|-----------|-------|----------|
 | **Supervised Fine-Tuning**   | SFT                                 | 74.2      | 70.8  | 15.2     |
 |                             | RAFT (Dong et al., 2023)            | 76.9      | 71.3  | 17.8     |
-|                             | BOND (Sessa et al., 2024)           | 80.8      | 75.2  | 20.4     |
+|                             | BOND (Sessa et al., 2024)           | 80.8      | 75.2  | 30.0     |
 | **Direct Policy Optimization** | DPO (Rafailov et al., 2024)       | 78.4      | 73.7  | 23.0     |
-|                             | IPO (Azar et al., 2024)             | 77.8      | 72.9  | 22.3     |
-|                             | KTO (Ezhayarajh et al., 2024)       | 77.9      | 73.5  | 22.4     |
-|                             | Iterative-DPO (Pang et al., 2024)   | 78.1      | 74.8  | 23.0     |
-| **Reinforcement Learning**   | PPO-S (Hu et al., 2024)             | 78.1      | 72.7  | 29.8     |
-|                             | PPO-M (cf. Shao et al., 2024)       | 80.2      | 75.3  | 29.8     |
-|                             | PF-PPO (BoN)                        | 82.9      | 75.9  | 33.0     |
+|                             | IPO (Azar et al., 2024)             | 78.2      | 72.9  | 23.2     |
+|                             | KTO (Ezhayarajh et al., 2024)       | 77.9      | 72.5  | 22.4     |
+|                             | Iterative-DPO (Pang et al., 2024)   | 78.1      | 74.8  | 23.8     |
+| **Reinforcement Learning**   | PPO-S (Hu et al., 2024)             | 78.1      | 73.8  | 25.2     |
+|                             | PPO-M (cf. Shao et al., 2024)       | 80.2      | 75.0  | 29.8     |
+|                             | PF-PPO (BoN)                        | 75.8      | 71.7  | 16.8     |
 |                             | PF-PPO (BR)                         | 82.9      | 75.9  | 33.0     |
-|                             | PF-PPO (BW)                         | 83.4      | 76.2  | 30.4     |
+|                             | PF-PPO (BW)                         | 82.4      | 76.2  | 30.4     |
 | **SOTA (7B models)**         | Magicoder (Wei et al., 2023)        | 76.8      | 75.7  |          |
 

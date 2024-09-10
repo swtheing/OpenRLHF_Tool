@@ -55,7 +55,7 @@ deepspeed --module openrlhf.cli.train_ppo \
 | **Reinforcement Learning**   | PPO-S (Hu et al., 2024)             | 78.1      | 73.8  | 25.2     |
 |                             | PPO-M (cf. Shao et al., 2024)       | 80.2      | 75.0  | 29.8     |
 |                             | PF-PPO (BoN)                        | 75.8      | 71.7  | 16.8     |
-|                             | PF-PPO (BR)                         | 82.9      | 75.9  | 33.0     |
-|                             | PF-PPO (BW)                         | 82.4      | 76.2  | 30.4     |
+|                             | PF-PPO (BR)                         | **82.9**      | 75.9  | **33.0**     |
+|                             | PF-PPO (BW)                         | 82.4      | **76.2**  | 30.4     |
 | **SOTA (7B models)**         | Magicoder (Wei et al., 2023)        | 76.8      | 75.7  |          |
 

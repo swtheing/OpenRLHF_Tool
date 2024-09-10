@@ -11,7 +11,7 @@ Credit: Wei shen ([@swtheing](https://github.com/swtheing))
 
 ## Quick Start
 
-#PPO without Ray
+# PPO without Ray
 deepspeed --module openrlhf.cli.train_ppo \
   --pretrain OpenRLHF/Llama-3-8b-sft-mixture \
   --reward_pretrain OpenRLHF/Llama-3-8b-rm-mixture \
